@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:stack_project/bloc/Login_bloc.dart';
 import 'package:stack_project/bloc/auth_bloc.dart';
+import 'package:stack_project/bloc/auth_event.dart';
+import 'package:stack_project/bloc/auth_state.dart';
 import 'package:stack_project/theme/app_fonts.dart';
 
 class SecondButtonWidget extends StatelessWidget {
@@ -17,7 +18,7 @@ class SecondButtonWidget extends StatelessWidget {
     return OutlinedButton(
       onPressed: () {
         BlocProvider.of<AuthBloc>(context).add(
-          CodeEvent(
+          SendCodeEvent(
             code: controller.text,
           ),
         );

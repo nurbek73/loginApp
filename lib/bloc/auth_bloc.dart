@@ -1,13 +1,15 @@
 import 'package:bloc/bloc.dart';
+
 import 'package:dio/dio.dart';
-import 'package:stack_project/bloc/Login_bloc.dart';
+import 'package:stack_project/bloc/auth_event.dart';
+import 'package:stack_project/bloc/auth_state.dart';
 import 'package:stack_project/repositries/auth_repository.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository repository;
 
   AuthBloc({required this.repository}) : super(AuthInitial()) {
-    on<PhoneNumEvent>((event, emit) async {
+    on<SendNumberEvent>((event, emit) async {
       emit(AuthLoading());
 
       try {
@@ -31,7 +33,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
     });
 
-    on<CodeEvent>((event, emit) async {
+    on<SendCodeEvent>((event, emit) async {
       emit(AuthLoadingCode());
 
       try {

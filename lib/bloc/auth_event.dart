@@ -1,16 +1,16 @@
-part of 'Login_bloc.dart';
+import 'package:flutter/material.dart';
 
 @immutable
 sealed class AuthEvent {}
 
-final class PhoneNumEvent extends AuthEvent {
+final class SendNumberEvent extends AuthEvent {
   final String phoneNumber;
 
-  PhoneNumEvent({required this.phoneNumber});
+  SendNumberEvent({required this.phoneNumber});
 }
 
-final class CodeEvent extends AuthEvent {
+final class SendCodeEvent extends AuthEvent {
   final String code;
 
-  CodeEvent({required this.code});
+  SendCodeEvent({required this.code});
 }

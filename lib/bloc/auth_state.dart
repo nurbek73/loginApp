@@ -1,4 +1,7 @@
-part of 'Login_bloc.dart';
+
+import 'package:flutter/material.dart';
+import 'package:stack_project/model/error_model.dart';
+import 'package:stack_project/model/token_model.dart';
 
 @immutable
 sealed class AuthState {}
